@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Методы шифрования</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+    <h1>🔐 Методы шифрования</h1>
+
+    <div class="form-group">
+        <label>Выберите метод шифрования:</label>
+        <div class="radio-group">
+            <label class="radio-label">
+                <input type="radio" name="cipherMethod" value="railfence" checked>
+                🚂 Железнодорожная изгородь
+            </label>
+            <label class="radio-label">
+                <input type="radio" name="cipherMethod" value="vigenere">
+                🔑 Шифр Виженера
+            </label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="keyInput">Ключ:</label>
+        <input type="text" id="keyInput" placeholder="Введите ключ">
+        <div class="error-message" id="keyError"></div>
+        <div class="hint" id="keyHint">Для Rail Fence: число | Для Виженера: русское слово</div>
+    </div>
+
+    <div class="form-group">
+        <label for="inputText">Входной текст:</label>
+        <textarea id="inputText" placeholder="Введите текст для шифрования или дешифрования"></textarea>
+    </div>
+
+    <div class="form-group">
+        <label for="outputText">Результат <small>(только для чтения)</small>:</label>
+        <textarea id="outputText" readonly placeholder="Здесь появится результат"></textarea>
+    </div>
+
+    <!-- Секция для работы с файлами -->
+    <div class="form-group file-group">
+        <label>📁 Работа с файлами:</label>
+
+        <!-- Чтение из файла -->
+        <div class="file-section">
+            <h3>📂 Чтение из файла</h3>
+            <div class="file-input-wrapper">
+                <input type="file" id="readFileInput" accept=".txt, text/plain">
+                <button class="btn btn-file" id="readFileBtn">📖 Загрузить ключ и текст</button>
+            </div>
+            <div class="file-info" id="readFileInfo"></div>
+            <div class="hint">Формат файла: первая строка - ключ, остальные строки - текст</div>
+        </div>
+
+        <!-- Сохранение в файл -->
+        <div class="file-section">
+            <h3>💾 Сохранение в файл</h3>
+            <div class="file-input-wrapper">
+                <button class="btn btn-save" id="saveFileBtn" disabled>💾 Сохранить ключ и результат</button>
+            </div>
+            <div class="file-info" id="saveFileInfo"></div>
+            <div class="hint">Формат файла: первая строка - ключ, вторая строка - результат</div>
+        </div>
+    </div>
+
+    <div class="buttons">
+        <button class="btn btn-encrypt" id="encryptBtn">🔐 Шифровать</button>
+        <button class="btn btn-decrypt" id="decryptBtn">🔓 Дешифровать</button>
+        <button class="btn btn-clear" id="clearBtn">🗑 Очистить</button>
+    </div>
+</div>
+<script type="module" src="main.js"></script>
+</body>
+</html>
